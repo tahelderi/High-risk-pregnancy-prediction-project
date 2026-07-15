@@ -1,0 +1,40 @@
+dataset,column,missing_count,missing_percent
+Data1 raw,Age,0,0.0
+Data1 raw,Systolic BP,5,0.415
+Data1 raw,Diastolic,4,0.332
+Data1 raw,BS,2,0.166
+Data1 raw,Body Temp,0,0.0
+Data1 raw,BMI,18,1.494
+Data1 raw,Previous Complications,2,0.166
+Data1 raw,Preexisting Diabetes,2,0.166
+Data1 raw,Gestational Diabetes,0,0.0
+Data1 raw,Mental Health,0,0.0
+Data1 raw,Heart Rate,2,0.166
+Data1 raw,Risk Level,18,1.494
+Data1 clean,age,1,0.086
+Data1 clean,systolic_bp,4,0.342
+Data1 clean,diastolic_bp,2,0.171
+Data1 clean,blood_sugar,1,0.086
+Data1 clean,body_temp_f,0,0.0
+Data1 clean,bmi,15,1.283
+Data1 clean,previous_complications,1,0.086
+Data1 clean,preexisting_diabetes,1,0.086
+Data1 clean,gestational_diabetes,0,0.0
+Data1 clean,mental_health,0,0.0
+Data1 clean,heart_rate,1,0.086
+Data1 clean,risk,0,0.0
+Data2 clean,age,0,0.0
+Data2 clean,gravida_n,0,0.0
+Data2 clean,tt_injection_n,0,0.0
+Data2 clean,pregnancy_weeks,0,0.0
+Data2 clean,weight_kg,0,0.0
+Data2 clean,height_cm,0,0.0
+Data2 clean,height_m,0,0.0
+Data2 clean,systolic_bp,0,0.0
+Data2 clean,diastolic_bp,0,0.0
+Data2 clean,fetal_heartbeat_bpm,0,0.0
+Data2 clean,urine_sugar_yes,0,0.0
+Data2 clean,vdrl_positive,0,0.0
+Data2 clean,hrsag_positive,0,0.0
+Data2 clean,bmi_calc,0,0.0
+Data2 clean,high_risk,0,0.0

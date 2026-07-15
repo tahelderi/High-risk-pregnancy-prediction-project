@@ -1,0 +1,8 @@
+dataset,target_column,target_value,count,percent
+Data1 raw,Risk Level,High,474,39.336
+Data1 raw,Risk Level,Low,713,59.17
+Data1 raw,Risk Level,,18,1.494
+Data1 clean,risk,0,696,59.538
+Data1 clean,risk,1,473,40.462
+Data2 clean,high_risk,0,332,33.3
+Data2 clean,high_risk,1,665,66.7

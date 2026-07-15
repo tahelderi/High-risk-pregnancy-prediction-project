@@ -1,0 +1,29 @@
+{
+  "dataset": "Data1",
+  "disclaimer": "This is a statistical project prediction for high-risk pregnancy screening, not a medical diagnosis. A qualified clinician must review any decision.",
+  "feature_count": 11,
+  "features_used": [
+    "age",
+    "systolic_bp",
+    "diastolic_bp",
+    "blood_sugar",
+    "body_temp_f",
+    "bmi",
+    "previous_complications",
+    "preexisting_diabetes",
+    "gestational_diabetes",
+    "mental_health",
+    "heart_rate"
+  ],
+  "limitations": [
+    "Predictions are statistical risk estimates, not medical diagnoses.",
+    "Data1 has unusually strong historical performance and should be treated cautiously because leakage or target-generation effects may be present.",
+    "Data1 and Data2 are not row-merged because they do not share patient or pregnancy identifiers.",
+    "Real-world performance depends on input data quality and population similarity."
+  ],
+  "model_name": "HistGradientBoosting",
+  "predicted_class": 1,
+  "predicted_probability": 0.9999947638591437,
+  "risk_label": "high-risk pregnancy",
+  "selected_threshold": 0.1
+}

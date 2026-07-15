@@ -1,0 +1,4 @@
+strategy,roc_auc,pr_auc,recall,precision,f1,accuracy
+baseline,0.9933,0.9962,0.982,0.9849,0.9834,0.9779
+undersample,0.9914,0.9947,0.9669,0.9877,0.9772,0.9699
+oversample,0.9926,0.9955,0.9774,0.9893,0.9834,0.9779

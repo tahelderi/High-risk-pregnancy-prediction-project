@@ -1,0 +1,27 @@
+{
+  "outputs": {
+    "data1_clean": "data/processed/data1_clean.csv",
+    "data2_clean": "data/processed/data2_clean.csv",
+    "quality_summary": "data/processed/data_quality_summary.csv",
+    "missing_summary": "data/processed/missing_values_summary.csv",
+    "target_summary": "data/processed/target_distribution_summary.csv",
+    "plausibility_summary": "data/processed/plausibility_summary.csv"
+  },
+  "data1": {
+    "raw_rows": 1205,
+    "rows_dropped_missing_target": 18,
+    "rows_removed_exact_duplicates": 18,
+    "final_rows": 1169,
+    "final_columns": 12
+  },
+  "data2": {
+    "raw_rows_including_metadata": 1000,
+    "header_row_zero_based": 1,
+    "data_rows_after_header": 998,
+    "rows_dropped_missing_target": 0,
+    "rows_dropped_missing_features": 0,
+    "rows_removed_exact_duplicates": 1,
+    "final_rows": 997,
+    "final_columns": 15
+  }
+}

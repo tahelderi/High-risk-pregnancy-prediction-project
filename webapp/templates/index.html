@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>בדיקת סיכון בהריון – כלי חינוכי להערכת סיכון</title>
+  <meta name="description" content="כלי חינוכי בעברית להערכת סיכון בהריון על סמך נתונים שהוזנו. אינו מהווה אבחון או ייעוץ רפואי." />
+  <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon-32.png') }}" />
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='img/favicon-16.png') }}" />
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/apple-touch-icon.png') }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="brand">
+      <img class="brand-img" src="{{ url_for('static', filename='img/pregnancy-icon-64.png') }}" alt="" aria-hidden="true" />
+      <span class="brand-name">בדיקת סיכון בהריון</span>
+    </div>
+    <nav class="site-nav" aria-label="ניווט ראשי">
+      <a href="#check">בדיקה</a>
+      <a href="#learn">מידע</a>
+      <a href="#disclaimer">הצהרה רפואית</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- 1. Welcome -->
+  <section class="hero" id="welcome">
+    <div class="container hero-inner">
+      <img class="hero-illustration" src="{{ url_for('static', filename='img/pregnancy-lineart.png') }}" alt="איור של אישה בהריון מלטפת את בטנה" />
+      <h1>בדיקת סיכון בהריון</h1>
+      <p class="hero-sub">
+        כלי חינוכי ותומך, שנועד לעזור לך להבין האם הפרטים שתזיני דומים למקרים שבהם
+        קיים סיכון מוגבר בהריון. הבדיקה פשוטה, אורכת דקה, והתוצאה מוסברת בשפה ברורה.
+      </p>
+      <p class="hero-note">
+        זהו כלי להמחשה וללמידה בלבד — הוא אינו מאבחן מצב רפואי ואינו מחליף ייעוץ של צוות רפואי.
+      </p>
+      <a class="btn btn-primary btn-lg" href="#check">התחילי בדיקה</a>
+    </div>
+  </section>
+
+  <!-- 2. Form -->
+  <section class="section" id="check">
+    <div class="container">
+      <h2 class="section-title"><span class="title-icon" aria-hidden="true">🤰</span>מילוי פרטים</h2>
+      <p class="section-lead">
+        מלאי את הפרטים שידועים לך. אין חובה למלא הכול — הכלי יזהה לבד אילו נתונים יש,
+        ויבחר את ההערכה המתאימה ביותר (לפי מדדי בריאות, לפי בדיקות הריון, או שילוב של שניהם).
+      </p>
+
+      <form id="risk-form" novalidate>
+        <!-- פרטים כלליים -->
+        <fieldset class="card">
+          <legend>פרטים כלליים</legend>
+          <div class="grid">
+            <div class="field">
+              <label for="age">גיל</label>
+              <input type="number" id="age" name="age" inputmode="numeric" min="10" max="65" step="1" />
+              <small>בשנים (10–65)</small>
+            </div>
+            <div class="field">
+              <label for="weight_kg">משקל</label>
+              <input type="number" id="weight_kg" name="weight_kg" inputmode="decimal" min="25" max="200" step="0.1" />
+              <small>בק״ג</small>
+            </div>
+            <div class="field">
+              <label for="height_cm">גובה</label>
+              <input type="number" id="height_cm" name="height_cm" inputmode="numeric" min="120" max="220" step="1" />
+              <small>בס״מ</small>
+            </div>
+            <div class="field">
+              <label for="bmi_display">BMI מחושב</label>
+              <input type="text" id="bmi_display" name="bmi_display" readonly placeholder="יחושב אוטומטית" />
+              <small>מחושב לפי משקל וגובה</small>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- מדדים רפואיים -->
+        <fieldset class="card">
+          <legend>מדדים רפואיים</legend>
+          <div class="grid">
+            <div class="field">
+              <label for="systolic_bp">לחץ דם סיסטולי</label>
+              <input type="number" id="systolic_bp" name="systolic_bp" inputmode="numeric" min="70" max="220" step="1" />
+              <small>המספר העליון (70–220)</small>
+            </div>
+            <div class="field">
+              <label for="diastolic_bp">לחץ דם דיאסטולי</label>
+              <input type="number" id="diastolic_bp" name="diastolic_bp" inputmode="numeric" min="40" max="140" step="1" />
+              <small>המספר התחתון (40–140)</small>
+            </div>
+            <div class="field">
+              <label for="heart_rate">דופק</label>
+              <input type="number" id="heart_rate" name="heart_rate" inputmode="numeric" min="40" max="200" step="1" />
+              <small>פעימות לדקה</small>
+            </div>
+            <div class="field">
+              <label for="body_temp_c">חום גוף</label>
+              <input type="number" id="body_temp_c" name="body_temp_c" inputmode="decimal" min="32" max="43" step="0.1" />
+              <small>במעלות צלזיוס</small>
+            </div>
+            <div class="field">
+              <label for="blood_sugar">רמת סוכר בדם</label>
+              <input type="number" id="blood_sugar" name="blood_sugar" inputmode="decimal" min="2" max="25" step="0.1" />
+              <small>אם ידוע לך מתוצאת בדיקה</small>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- היסטוריה רפואית -->
+        <fieldset class="card">
+          <legend>היסטוריה רפואית</legend>
+          <div class="grid">
+            <div class="field">
+              <label for="previous_complications">סיבוכים קודמים בהריון</label>
+              <select id="previous_complications" name="previous_complications">
+                <option value="">— בחרי —</option>
+                <option value="0">לא</option>
+                <option value="1">כן</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="preexisting_diabetes">סוכרת קיימת לפני ההריון</label>
+              <select id="preexisting_diabetes" name="preexisting_diabetes">
+                <option value="">— בחרי —</option>
+                <option value="0">לא</option>
+                <option value="1">כן</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="gestational_diabetes">סוכרת הריון</label>
+              <select id="gestational_diabetes" name="gestational_diabetes">
+                <option value="">— בחרי —</option>
+                <option value="0">לא</option>
+                <option value="1">כן</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="mental_health">רקע נפשי רלוונטי</label>
+              <select id="mental_health" name="mental_health">
+                <option value="">— בחרי —</option>
+                <option value="0">לא</option>
+                <option value="1">כן</option>
+              </select>
+              <small>למשל מעקב או טיפול רלוונטי</small>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- פרטי הריון / בדיקות -->
+        <fieldset class="card">
+          <legend>פרטי הריון ובדיקות</legend>
+          <div class="grid">
+            <div class="field">
+              <label for="gravida_n">מספר הריונות</label>
+              <select id="gravida_n" name="gravida_n">
+                <option value="">— בחרי —</option>
+                <option value="1">הריון ראשון</option>
+                <option value="2">הריון שני</option>
+                <option value="3">הריון שלישי ומעלה</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="tt_injection_n">מספר חיסוני טטנוס (TT)</label>
+              <select id="tt_injection_n" name="tt_injection_n">
+                <option value="">— בחרי —</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3 ומעלה</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="pregnancy_weeks">שבוע הריון</label>
+              <input type="number" id="pregnancy_weeks" name="pregnancy_weeks" inputmode="numeric" min="1" max="45" step="1" />
+              <small>1–45</small>
+            </div>
+            <div class="field">
+              <label for="fetal_heartbeat_bpm">דופק עוברי</label>
+              <input type="number" id="fetal_heartbeat_bpm" name="fetal_heartbeat_bpm" inputmode="numeric" min="60" max="220" step="1" />
+              <small>פעימות לדקה, אם נמדד</small>
+            </div>
+            <div class="field">
+              <label for="urine_sugar_yes">סוכר בשתן</label>
+              <select id="urine_sugar_yes" name="urine_sugar_yes">
+                <option value="">— בחרי —</option>
+                <option value="0">לא נמצא</option>
+                <option value="1">נמצא</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="vdrl_positive">תוצאת בדיקת VDRL</label>
+              <select id="vdrl_positive" name="vdrl_positive">
+                <option value="">— בחרי —</option>
+                <option value="0">שלילית</option>
+                <option value="1">חיובית</option>
+              </select>
+              <small>בדיקת דם שגרתית בהריון</small>
+            </div>
+            <div class="field">
+              <label for="hrsag_positive">תוצאת בדיקת HBsAg</label>
+              <select id="hrsag_positive" name="hrsag_positive">
+                <option value="">— בחרי —</option>
+                <option value="0">שלילית</option>
+                <option value="1">חיובית</option>
+              </select>
+              <small>בדיקת דם שגרתית בהריון</small>
+            </div>
+          </div>
+        </fieldset>
+
+        <div id="form-error" class="form-error" role="alert" hidden></div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary btn-lg">קבלת הערכה</button>
+          <button type="reset" class="btn btn-ghost">ניקוי הטופס</button>
+        </div>
+      </form>
+
+      <!-- 3. Result -->
+      <div id="result" class="result-card" hidden tabindex="-1" aria-live="polite">
+        <div class="result-head">
+          <span class="result-badge" id="result-badge"></span>
+          <span class="result-mode" id="result-mode"></span>
+        </div>
+        <h3 class="result-title" id="result-title"></h3>
+        <div class="result-meter" aria-hidden="true">
+          <div class="result-meter-fill" id="result-meter-fill"></div>
+        </div>
+        <p class="result-percent" id="result-percent"></p>
+        <p class="result-explain" id="result-explain"></p>
+        <div class="result-next" id="result-next"></div>
+
+        <details class="result-more" id="result-more">
+          <summary>מידע נוסף</summary>
+          <div id="result-more-body"></div>
+        </details>
+
+        <p class="result-disclaimer" id="result-disclaimer"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Educational -->
+  <section class="section section-alt" id="learn">
+    <div class="container">
+      <h2 class="section-title"><span class="title-icon" aria-hidden="true">🤱</span>מידע והסברים</h2>
+
+      <details class="accordion" open>
+        <summary>מה הכלי בודק?</summary>
+        <div class="accordion-body">
+          <p>
+            הכלי בוחן את הפרטים שהזנת ומשווה אותם, באמצעות מודל סטטיסטי שנבנה על נתוני עבר,
+            למקרים שסווגו כ<strong>הריון בסיכון מוגבר</strong>. התוצאה היא הערכת סיכון בלבד —
+            הכלי אינו מאבחן מחלה, תסמונת או מצב רפואי כלשהו, ואינו בודק את בריאות העובר.
+          </p>
+        </div>
+      </details>
+
+      <details class="accordion">
+        <summary>איך לפרש את התוצאה?</summary>
+        <div class="accordion-body">
+          <p>
+            התוצאה מוצגת באחוזים, המבטאים עד כמה הפרטים שהזנת דומים למקרים בסיכון מוגבר.
+            אחוז גבוה אינו אומר שקיים מצב רפואי — הוא רק סימן לכך שמומלץ להתייעץ עם צוות רפואי
+            להמשך בדיקה. אחוז נמוך אינו ערובה, והוא אינו מחליף מעקב הריון שגרתי.
+          </p>
+        </div>
+      </details>
+
+      <details class="accordion">
+        <summary>אילו נתונים משפיעים על ההערכה?</summary>
+        <div class="accordion-body">
+          <p>
+            ההערכה מבוססת על שילוב של מדדים, ובהם לחץ דם, מדדי גוף, תוצאות בדיקות דם ושתן שגרתיות
+            בהריון, ופרטי הריון כמו שבוע ההריון ומספר ההריונות. חלק מהמדדים נמצאו משפיעים יותר
+            על ההערכה מאחרים. ככל שתמלאי יותר פרטים, ההערכה תהיה מקיפה יותר.
+          </p>
+        </div>
+      </details>
+
+      <details class="accordion">
+        <summary>מגבלות הכלי</summary>
+        <div class="accordion-body">
+          <p>
+            הכלי נבנה כפרויקט לימודי על בסיס שני מאגרי נתונים מוגבלים בגודלם, שאינם בהכרח מייצגים
+            את כלל הנשים. ההערכה תלויה באיכות ובדיוק הפרטים שהוזנו, ועשויות להיות טעויות לכאן ולכאן.
+          </p>
+          <p>
+            אחד ממקורות הנתונים הראה ביצועים גבוהים במיוחד, באופן שמעורר זהירות — ייתכן שהוא מושפע
+            מאופן איסוף הנתונים. לכן אנו מתייחסים אליו כאל מקור משלים בלבד, ולא נותנים לו משקל יתר.
+            שני המקורות נשמרים בנפרד ואינם מאוחדים זה עם זה.
+          </p>
+        </div>
+      </details>
+
+      <details class="accordion" id="disclaimer">
+        <summary>הצהרה רפואית</summary>
+        <div class="accordion-body">
+          <p>
+            כלי זה אינו מכשיר רפואי ואינו מספק ייעוץ רפואי. התוצאה היא הערכה סטטיסטית, ולא אבחנה.
+            הוא אינו מאבחן ואינו שולל תסמונות עובריות, מומים, מחלות גנטיות או כל מצב רפואי.
+          </p>
+          <p>
+            בכל שאלה, חשש או החלטה הנוגעת להריון יש לפנות לרופא/ה, אחות, מיילדת או איש מקצוע רפואי מוסמך.
+            הכלי אינו מחליף מעקב הריון שגרתי.
+          </p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- 5. Examiner / model info (secondary) -->
+  <section class="section" id="model-info">
+    <div class="container">
+      <details class="tech">
+        <summary>מידע על המודל ונתוני ביצועים</summary>
+        <div class="tech-body">
+          <p class="tech-note">
+            פרטים טכניים לצורכי הערכת הפרויקט. המדדים נטענים מקובצי המודל והדוחות השמורים;
+            ערך שאינו זמין יוצג כ״לא זמין״.
+          </p>
+
+          <h4>שיטת ההערכה</h4>
+          <ul class="tech-list">
+            <li>חלוקה לקבוצת אימון ובדיקה (80%/20%, stratified) וּוֹלידציה צולבת של 5 קיפולים.</li>
+            <li>מדד מרכזי: Recall (רגישות), כדי לצמצם החמצת מקרים בסיכון; לצדו Precision, F1, ROC-AUC ו-Accuracy.</li>
+            <li>שני מודלים נפרדים: Data1 ו-Data2. הם אינם ממוזגים שורה-מול-שורה כי אין מזהה משותף.</li>
+            <li>הערכה משולבת מחושבת בזמן הריצה בלבד, כממוצע משוקלל (משקל שווה כברירת מחדל).</li>
+          </ul>
+
+          <div class="metric-cards">
+            <div class="metric-card">
+              <h5>מודל ראשי – Data2 ({{ model_info.data2.model_name }})</h5>
+              <table class="metric-table">
+                <tr><td>סף החלטה</td><td>{{ model_info.data2.threshold }}</td></tr>
+                <tr><td>Accuracy</td><td>{{ model_info.data2.accuracy }}</td></tr>
+                <tr><td>ROC-AUC</td><td>{{ model_info.data2.roc_auc }}</td></tr>
+                <tr><td>Recall</td><td>{{ model_info.data2.recall }}</td></tr>
+                <tr><td>Precision</td><td>{{ model_info.data2.precision }}</td></tr>
+                <tr><td>F1</td><td>{{ model_info.data2.f1 }}</td></tr>
+                <tr><td>מטריצת בלבול (TN/FP/FN/TP)</td>
+                    <td>{{ model_info.data2.tn }}/{{ model_info.data2.fp }}/{{ model_info.data2.fn }}/{{ model_info.data2.tp }}</td></tr>
+              </table>
+            </div>
+
+            <div class="metric-card">
+              <h5>מודל משלים – Data1 ({{ model_info.data1.model_name }})</h5>
+              <table class="metric-table">
+                <tr><td>סף החלטה</td><td>{{ model_info.data1.threshold }}</td></tr>
+                <tr><td>Accuracy</td><td>{{ model_info.data1.accuracy }}</td></tr>
+                <tr><td>ROC-AUC</td><td>{{ model_info.data1.roc_auc }}</td></tr>
+                <tr><td>Recall</td><td>{{ model_info.data1.recall }}</td></tr>
+                <tr><td>Precision</td><td>{{ model_info.data1.precision }}</td></tr>
+                <tr><td>F1</td><td>{{ model_info.data1.f1 }}</td></tr>
+                <tr><td>מטריצת בלבול (TN/FP/FN/TP)</td>
+                    <td>{{ model_info.data1.tn }}/{{ model_info.data1.fp }}/{{ model_info.data1.fn }}/{{ model_info.data1.tp }}</td></tr>
+              </table>
+              <p class="tech-caveat">ביצועיו גבוהים באופן חריג ולכן מטופל כמקור משלים בלבד.</p>
+            </div>
+
+            <div class="metric-card">
+              <h5>הערכה משולבת</h5>
+              <table class="metric-table">
+                <tr><td>משקל Data1</td><td>{{ model_info.combined.weight_data1 }}</td></tr>
+                <tr><td>משקל Data2</td><td>{{ model_info.combined.weight_data2 }}</td></tr>
+                <tr><td>סף משולב</td><td>{{ model_info.combined.threshold }}</td></tr>
+              </table>
+            </div>
+          </div>
+
+          <h4>חשיבות המאפיינים (Data2)</h4>
+          {% if model_info.feature_importance %}
+          <table class="data-table">
+            <thead><tr><th>מאפיין</th><th>שם טכני</th><th>חשיבות</th></tr></thead>
+            <tbody>
+              {% for f in model_info.feature_importance %}
+              <tr><td>{{ f.label }}</td><td dir="ltr">{{ f.name }}</td><td>{{ f.value }}</td></tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          {% else %}
+          <p>לא זמין</p>
+          {% endif %}
+
+          <h4>סיכום איכות נתונים</h4>
+          {% if model_info.data_quality %}
+          <table class="data-table">
+            <thead><tr><th>מאגר</th><th>שורות</th><th>עמודות</th><th>תאים חסרים</th><th>% חסר</th><th>כפילויות</th></tr></thead>
+            <tbody>
+              {% for r in model_info.data_quality %}
+              <tr>
+                <td dir="ltr">{{ r.dataset }}</td><td>{{ r.rows }}</td><td>{{ r.columns }}</td>
+                <td>{{ r.missing_cells }}</td><td>{{ r.missing_percent }}</td><td>{{ r.duplicate_rows }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          {% else %}
+          <p>לא זמין</p>
+          {% endif %}
+
+          <h4>גרפים</h4>
+          {% if model_info.figures %}
+          <div class="fig-grid">
+            {% for fig in model_info.figures %}
+            <figure><img src="{{ fig.src }}" alt="{{ fig.caption }}" loading="lazy" /><figcaption>{{ fig.caption }}</figcaption></figure>
+            {% endfor %}
+          </div>
+          {% else %}
+          <p>לא זמין</p>
+          {% endif %}
+        </div>
+      </details>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="footer-disclaimer">
+      <strong>הצהרה רפואית:</strong> כלי זה הוא פרויקט לימודי להמחשה בלבד. התוצאה היא הערכת סיכון
+      סטטיסטית ואינה אבחנה או ייעוץ רפואי. אין בו כדי לאבחן או לשלול תסמונות, מומים או מחלות.
+      בכל שאלה או חשש פני לרופא/ה, אחות, מיילדת או איש מקצוע רפואי מוסמך.
+    </p>
+    <p class="footer-small">נבנה כשכבת תצוגה מעל מודל החיזוי של הפרויקט · אינו מחליף מעקב רפואי</p>
+  </div>
+</footer>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

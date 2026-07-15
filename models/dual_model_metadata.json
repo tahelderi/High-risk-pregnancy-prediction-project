@@ -1,0 +1,52 @@
+{
+  "combined_threshold": 0.125,
+  "disclaimer": "This is a statistical project prediction, not a medical diagnosis.",
+  "models": {
+    "Data1": {
+      "feature_names": [
+        "age",
+        "systolic_bp",
+        "diastolic_bp",
+        "blood_sugar",
+        "body_temp_f",
+        "bmi",
+        "previous_complications",
+        "preexisting_diabetes",
+        "gestational_diabetes",
+        "mental_health",
+        "heart_rate"
+      ],
+      "metadata_path": "models/model_metadata_data1.json",
+      "model_path": "models/final_model_data1.pkl",
+      "threshold": 0.1
+    },
+    "Data2": {
+      "feature_names": [
+        "age",
+        "gravida_n",
+        "tt_injection_n",
+        "pregnancy_weeks",
+        "weight_kg",
+        "height_cm",
+        "systolic_bp",
+        "diastolic_bp",
+        "fetal_heartbeat_bpm",
+        "urine_sugar_yes",
+        "vdrl_positive",
+        "hrsag_positive",
+        "bmi_calc"
+      ],
+      "metadata_path": "models/model_metadata_data2.json",
+      "model_path": "models/final_model_data2.pkl",
+      "threshold": 0.15
+    }
+  },
+  "project": "High-Risk Pregnancy Prediction Using Maternal and Clinical Data",
+  "scientific_framing": "Data1 and Data2 are separate training sources and are not row-merged. The combined probability is computed only at inference time when a user provides all required features for both models.",
+  "strategy": "dual_model_inference_time_weighted_average",
+  "weight_rationale": "Equal weights are used because Data1 and Data2 do not share pregnancy identifiers or a common validation cohort. Data1 performance is strong but scientifically suspicious, so it is not overweighted despite high holdout metrics.",
+  "weights": {
+    "Data1": 0.5,
+    "Data2": 0.5
+  }
+}

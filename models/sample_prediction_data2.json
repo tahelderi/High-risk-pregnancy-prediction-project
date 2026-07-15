@@ -1,0 +1,32 @@
+{
+  "dataset": "Data2",
+  "disclaimer": "This is a statistical project prediction for high-risk pregnancy screening, not a medical diagnosis. A qualified clinician must review any decision.",
+  "feature_count": 13,
+  "features_used": [
+    "age",
+    "gravida_n",
+    "tt_injection_n",
+    "pregnancy_weeks",
+    "weight_kg",
+    "height_cm",
+    "systolic_bp",
+    "diastolic_bp",
+    "fetal_heartbeat_bpm",
+    "urine_sugar_yes",
+    "vdrl_positive",
+    "hrsag_positive",
+    "bmi_calc"
+  ],
+  "limitations": [
+    "Predictions are statistical risk estimates, not medical diagnoses.",
+    "Data1 is available as a separate dual-model artifact, but its unusually strong results may indicate leakage risk.",
+    "Dataset size and representativeness are limited.",
+    "Real-world performance depends on input data quality.",
+    "Data2 remains the backwards-compatible default model artifact for existing prediction workflows."
+  ],
+  "model_name": "HistGradientBoosting",
+  "predicted_class": 1,
+  "predicted_probability": 0.9457717933633584,
+  "risk_label": "high-risk pregnancy",
+  "selected_threshold": 0.15
+}

@@ -1,0 +1,23 @@
+{
+  "age": 30,
+  "blood_sugar": 8.0,
+  "bmi": 32.0,
+  "bmi_calc": 32.03125,
+  "body_temp_f": 98.6,
+  "diastolic_bp": 90,
+  "fetal_heartbeat_bpm": 145,
+  "gestational_diabetes": 1,
+  "gravida_n": 2,
+  "heart_rate": 95,
+  "height_cm": 160,
+  "hrsag_positive": 0,
+  "mental_health": 0,
+  "preexisting_diabetes": 0,
+  "pregnancy_weeks": 34,
+  "previous_complications": 1,
+  "systolic_bp": 140,
+  "tt_injection_n": 2,
+  "urine_sugar_yes": 1,
+  "vdrl_positive": 0,
+  "weight_kg": 82
+}

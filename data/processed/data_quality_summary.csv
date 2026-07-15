@@ -1,0 +1,5 @@
+dataset,rows,columns,missing_cells,missing_percent,duplicate_rows,target_column
+Data1 raw,1205,12,53,0.367,18,Risk Level
+Data1 clean,1169,12,26,0.185,0,risk
+Data2 raw including metadata,1000,18,3741,20.783,0,
+Data2 clean,997,15,0,0.0,0,high_risk

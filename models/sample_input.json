@@ -1,0 +1,15 @@
+{
+  "age": 30,
+  "bmi_calc": 32.03125,
+  "diastolic_bp": 90,
+  "fetal_heartbeat_bpm": 145,
+  "gravida_n": 2,
+  "height_cm": 160,
+  "hrsag_positive": 0,
+  "pregnancy_weeks": 34,
+  "systolic_bp": 140,
+  "tt_injection_n": 2,
+  "urine_sugar_yes": 1,
+  "vdrl_positive": 0,
+  "weight_kg": 82
+}

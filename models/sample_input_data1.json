@@ -1,0 +1,13 @@
+{
+  "age": 30,
+  "blood_sugar": 8.0,
+  "bmi": 32.0,
+  "body_temp_f": 98.6,
+  "diastolic_bp": 90,
+  "gestational_diabetes": 1,
+  "heart_rate": 95,
+  "mental_health": 0,
+  "preexisting_diabetes": 0,
+  "previous_complications": 1,
+  "systolic_bp": 140
+}
